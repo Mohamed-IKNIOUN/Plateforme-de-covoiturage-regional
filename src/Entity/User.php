@@ -43,7 +43,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $phone = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $createdAt = null;
+    private ?\DateTime $createdAt = null;
 
     #[ORM\OneToMany(mappedBy: 'owner', targetEntity: Vehicle::class, orphanRemoval: true)]
     private Collection $vehicles;
@@ -67,7 +67,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->bookings        = new ArrayCollection();
         $this->writtenReviews  = new ArrayCollection();
         $this->receivedReviews = new ArrayCollection();
-        $this->createdAt       = new \DateTimeImmutable();
+        $this->createdAt = new \DateTime();
     }
 
     public function getId(): ?int { return $this->id; }
@@ -99,9 +99,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getPhone(): ?string { return $this->phone; }
     public function setPhone(?string $phone): static { $this->phone = $phone; return $this; }
 
-    public function getCreatedAt(): ?\DateTimeImmutable { return $this->createdAt; }
-    public function setCreatedAt(\DateTimeImmutable $createdAt): static { $this->createdAt = $createdAt; return $this; }
-
+    public function getCreatedAt(): ?\DateTime { return $this->createdAt; }
+    public function setCreatedAt(\DateTime $createdAt): static { $this->createdAt = $createdAt; return $this; }
     /** @return Collection<int, Vehicle> */
     public function getVehicles(): Collection { return $this->vehicles; }
     public function addVehicle(Vehicle $vehicle): static

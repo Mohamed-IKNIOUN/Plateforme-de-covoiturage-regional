@@ -44,10 +44,10 @@ class Trip
     private ?int $version = null;
 
     #[ORM\Column(nullable: true)]
-    private ?\DateTimeImmutable $completedAt = null;
+    private ?\DateTime $completedAt = null;
 
     #[ORM\Column(nullable: true)]
-    private ?\DateTimeImmutable $cancelledAt = null;
+    private ?\DateTime $cancelledAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'tripsAsDriver')]
     #[ORM\JoinColumn(nullable: false)]
@@ -103,11 +103,11 @@ class Trip
 
     public function getVersion(): ?int { return $this->version; }
 
-    public function getCompletedAt(): ?\DateTimeImmutable { return $this->completedAt; }
-    public function setCompletedAt(?\DateTimeImmutable $completedAt): static { $this->completedAt = $completedAt; return $this; }
+    public function getCompletedAt(): ?\DateTime { return $this->completedAt; }
+    public function setCompletedAt(?\DateTime $completedAt): static { $this->completedAt = $completedAt; return $this; }
 
-    public function getCancelledAt(): ?\DateTimeImmutable { return $this->cancelledAt; }
-    public function setCancelledAt(?\DateTimeImmutable $cancelledAt): static { $this->cancelledAt = $cancelledAt; return $this; }
+    public function getCancelledAt(): ?\DateTime { return $this->cancelledAt; }
+    public function setCancelledAt(?\DateTime $cancelledAt): static { $this->cancelledAt = $cancelledAt; return $this; }
 
     public function getDriver(): ?User { return $this->driver; }
     public function setDriver(?User $driver): static { $this->driver = $driver; return $this; }

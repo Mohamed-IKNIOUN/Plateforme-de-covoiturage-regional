@@ -17,10 +17,10 @@ class TripStop
     private ?int $position = null;
 
     #[ORM\Column(nullable: true)]
-    private ?\DateTimeImmutable $arrivalAt = null;
+    private ?\DateTime $arrivalAt = null;
 
     #[ORM\Column(nullable: true)]
-    private ?\DateTimeImmutable $departureAt = null;
+    private ?\DateTime $departureAt = null;
 
     #[ORM\Column]
     private ?float $distanceFromStartKm = null;
@@ -38,11 +38,11 @@ class TripStop
     public function getPosition(): ?int { return $this->position; }
     public function setPosition(int $position): static { $this->position = $position; return $this; }
 
-    public function getArrivalAt(): ?\DateTimeImmutable { return $this->arrivalAt; }
-    public function setArrivalAt(?\DateTimeImmutable $arrivalAt): static { $this->arrivalAt = $arrivalAt; return $this; }
+    public function getArrivalAt(): ?\DateTime { return $this->arrivalAt; }
+    public function setArrivalAt(?\DateTime $arrivalAt): static { $this->arrivalAt = $arrivalAt; return $this; }
 
-    public function getDepartureAt(): ?\DateTimeImmutable { return $this->departureAt; }
-    public function setDepartureAt(?\DateTimeImmutable $departureAt): static { $this->departureAt = $departureAt; return $this; }
+    public function getDepartureAt(): ?\DateTime { return $this->departureAt; }
+    public function setDepartureAt(?\DateTime $departureAt): static { $this->departureAt = $departureAt; return $this; }
 
     public function getDistanceFromStartKm(): ?float { return $this->distanceFromStartKm; }
     public function setDistanceFromStartKm(float $km): static { $this->distanceFromStartKm = $km; return $this; }

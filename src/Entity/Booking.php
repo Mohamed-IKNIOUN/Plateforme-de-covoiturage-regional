@@ -27,10 +27,10 @@ class Booking
     private ?BookingStatus $status = BookingStatus::PENDING;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $createdAt = null;
+    private ?\DateTime $createdAt = null;
 
     #[ORM\Column(nullable: true)]
-    private ?\DateTimeImmutable $cancelledAt = null;
+    private ?\DateTime $cancelledAt = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $cancellationReason = null;
@@ -63,7 +63,7 @@ class Booking
 
     public function __construct()
     {
-        $this->createdAt = new \DateTimeImmutable();
+        $this->createdAt = new \DateTime();
         $this->status    = BookingStatus::PENDING;
         $this->reviews   = new ArrayCollection();
     }
@@ -79,11 +79,11 @@ class Booking
     public function getStatus(): ?BookingStatus { return $this->status; }
     public function setStatus(BookingStatus $s): static { $this->status = $s; return $this; }
 
-    public function getCreatedAt(): ?\DateTimeImmutable { return $this->createdAt; }
-    public function setCreatedAt(\DateTimeImmutable $d): static { $this->createdAt = $d; return $this; }
+    public function getCreatedAt(): ?\DateTime { return $this->createdAt; }
+    public function setCreatedAt(\DateTime $createdAt): static { $this->createdAt = $createdAt; return $this; }
 
-    public function getCancelledAt(): ?\DateTimeImmutable { return $this->cancelledAt; }
-    public function setCancelledAt(?\DateTimeImmutable $d): static { $this->cancelledAt = $d; return $this; }
+    public function getCancelledAt(): ?\DateTime { return $this->cancelledAt; }
+    public function setCancelledAt(?\DateTime $cancelledAt): static { $this->cancelledAt = $cancelledAt; return $this; }
 
     public function getCancellationReason(): ?string { return $this->cancellationReason; }
     public function setCancellationReason(?string $r): static { $this->cancellationReason = $r; return $this; }
